@@ -1,0 +1,207 @@
+:root {
+    /* scene variables */
+    --ambient-color:  rgb(111, 13, 13);
+    --width : 1000px;
+    --height: 650px;
+
+    /* fall animation variable */
+    --fall-start-top:-30%;
+    --fall-start-left:-20%;
+    --fall-start-rx:0;
+    --fall-start-ry:0;
+    --fall-start-rz:0;
+    --fall-start-s: 0.2;
+    --fall-end-top: 100%;
+    --fall-end-left:100%;
+    --fall-end-rx: 2turn;
+    --fall-end-ry: 3turn;
+    --fall-end-rz: 5turn;
+    --fall-end-s: 1;
+    --fall-duration: 10s;
+    --fall-delay:0s;
+
+    /* shine animation variables */
+    --shine-start-angle: -.1turn;
+    --shine-end-angle: -.11turn;
+    --ray-width: 1330px;
+    --ray-height: 50px;
+    --ray-top:40px;
+    --rat-left:-100px;
+    --ray-delay:0s;
+    --ray-rotate: -1turn ; 
+
+}
+
+
+body{
+    margin: 0;
+    background-color: var(--ambient-color);
+   
+}
+.container {
+    width: var(--width);
+    height: var(--height);
+    border: 2px solid #fff;
+    overflow: hidden;
+    position: absolute;
+    left: 300px;
+   
+}
+
+.background {
+    background-image: url(images/fall.jpg);
+    background-size: cover;
+}
+
+.scene-mask-1 {
+    
+    perspective: 500px;
+
+    /* CSS masking */
+    -webkit-mask-image: url(images/fall-mask-1.svg);
+    -webkit-mask-size: cover;
+}
+
+.scene-mask-2 {
+    
+    perspective: 500px;
+
+    /* CSS masking */
+    -webkit-mask-image: url(images/fall-mask-2.svg);
+    -webkit-mask-size: cover;
+}
+
+.leaf { 
+    width: calc(var(--width) / 20);
+    height: calc(var(--width) / 20);
+    background-size: cover;
+    position: absolute;
+    animation: fall var(--fall-duration) ease-in forwards infinite;
+    animation-delay: var(--fall-delay);
+    
+}
+
+.leaf-1{
+    background-image: url(images/leaf-1.png);
+}
+.leaf-2{
+    background-image: url(images/leaf-2.png);
+}
+.leaf-3{
+    background-image: url(images/leaf-3.png);
+}
+.leaf-4{
+    background-image: url(images/leaf-4.png);
+}
+.leaf-5{
+    background-image: url(images/leaf-5.png);
+}
+
+
+/* css - animation */
+
+
+@keyframes fall {
+
+    from{
+        left:var(--fall-start-left);
+        top:var(--fall-start-top);
+        transform:rotateX(var(--fall-start-rx)) rotateY(var(--fall-start-ry)) rotateZ(var(--fall-start-rz)) scale(var(--fall-start-s));
+    }
+
+    to{
+        left:var(--fall-end-left);
+        top:var(--fall-end-top);
+        transform:rotateX(var(--fall-end-rx)) rotateY(var(--fall-end-ry)) rotateZ(var(--fall-end-rz)) scale(var(--fall-end-s));
+    }
+    
+}
+
+
+.ray {
+    width: var(--ray-width);
+    height: var(--ray-height);
+
+    position: absolute;
+    top: var(--ray-top);
+    left: var(--rat-left);
+
+    background-image: conic-gradient(
+        transparent .745turn, 
+        #fdf895, 
+        #d78356, 
+        #fdf895, 
+        #f5e087df, 
+        #fdf895, 
+        transparent .755turn
+    );
+
+    animation: shine 5s infinite alternate;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    animation-delay: var(--ray-delay);
+    transform: rotate(var(--ray-rotate));
+}
+
+.ray-1 {
+    
+    
+}
+
+.ray-2 {
+    
+}
+
+.ray-3{
+    
+}
+.ray-4{
+    
+}
+.ray-5{
+    
+}
+
+@keyframes shine {
+    from{
+        transform: rotate(var(--shine-start-angle));
+
+    }
+
+    to{
+        transform: rotate(var(--shine-end-angle));
+    }
+    
+}
+
+
+.fog {
+    width: 2000px;
+    height: 1000px;
+   
+    background-size: contain;
+    
+}
+
+.fog-1{
+    background-image: url(images/fog.png);
+    opacity: 0.75;
+    filter: sepia(100%) saturate(1000%) hue-rotate(328deg);
+    
+
+}
+
+.slide{
+    animation: slide 200s linear;
+}
+
+
+@keyframes slide {
+    from{
+        background-position-x:0;
+    }
+    to{
+        background-position-x:10000px;
+    }
+    
+}
