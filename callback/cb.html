@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+
+
+    <script>
+        const data =[
+            {id:1, category: "smartphones", name:"Samsung XII", price:{amount: 100, currency: "EUR"}},
+            {id:2, category: "smartphones", name:"Samsung ULTRA 21", price:{amount: 120, currency: "EUR"}},
+            {id:3, category: "tablet", name:"iPad 15", price:{amount: 190, currency: "EUR"}},
+            {id:4, category: "tv", name:"UXFAR800A LG", price:{amount: 150, currency: "EUR"}},
+            {id:5, category: "smartphones", name:"iPhone 17 Ultra", price:{amount: 230, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Samsung 22+", price:{amount: 530, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Samsung 51s", price:{amount: 250, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"iPhone 15 Ultra", price:{amount: 340, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Ulefone D2", price:{amount: 1230, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Redmi 5A", price:{amount: 1530, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Xiaomi Note 2", price:{amount: 230, currency: "EUR"}},            
+            {id:5, category: "smartphones", name:"Nothing Phone", price:{amount: 2230, currency: "EUR"}},            
+        ]
+
+        const print = (value)  => {console.log(value.name +": "+ value.price.amount)}
+        const render = (value)  => {document.write(`${value.name +": "+ value.price.amount}<br>`)}
+        data.filter(value => value.category == "smartphones")
+
+        //  HW : Using sort method
+            .sort((a, b) => a.price.amount - b.price.amount)
+            .forEach(render)
+
+
+    </script>
+    
+</body>
+</html>
