@@ -29,7 +29,7 @@
         data.filter(value => value.category == "smartphones")
 
         //  HW : Using sort method
-            .sort((a, b) => a.price.amount - b.price.amount)
+            .sort((a, b) => b.price.amount - a.price.amount  )
             .forEach(render)
 
 
