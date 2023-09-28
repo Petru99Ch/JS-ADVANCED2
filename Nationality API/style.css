@@ -1,0 +1,33 @@
+
+body {
+    background-color: #234;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#form {
+    margin-top: 100px;
+    border: 2px solid #999;
+}
+
+#form h2 {
+    margin-top: 50px;
+}
+
+#form label {
+    margin-top: 50px;
+}
+
+#form input {
+    padding: 1em;
+    margin: 1em;
+    outline: none;
+    width: 40%;
+    font-size: 2em;
+}
+
+#form .output {
+    margin: 50px;
+    font-size: 2em;
+}
