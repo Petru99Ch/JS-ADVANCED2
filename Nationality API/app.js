@@ -5,7 +5,7 @@ const input = form.children[2].firstElementChild
 const clearOutput = ()=> {
     
 
-    if(input.value.length == 0 ){
+    if(input.value.length == 1 ){
         let output = document.querySelector(".output")
         output.innerText=''
     }
