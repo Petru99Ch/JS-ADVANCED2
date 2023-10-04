@@ -1,7 +1,10 @@
 const URL = "https://en.wikipedia.org/wiki/List_of_programming_languages"
+let languages = []
  
 const scrapper = () =>{
 
+
+   
 
     let xhr = new XMLHttpRequest()
 
@@ -9,21 +12,45 @@ const scrapper = () =>{
 
     xhr.onload = () => {
         let html = xhr.responseText
-       
-
+        
         let parser = new DOMParser()
-        let htmlDoc = parser.parseFromString(html , "text/html")
+        let htmlDoc = parser.parseFromString(html, "text/html")
 
-   
-        let div = htmlDoc.querySelectorAll('.div-col')
-  
 
-        let J_Lang = div[9].innerText
+        let list = htmlDoc.querySelectorAll(".div-col")        
+        let li_9 = list[9]        
+        let result = li_9.firstElementChild.children
+        
+        for(let i = 0 ; i< result.length; i++){
+            languages.push(result[i].innerText)
+        }
 
-        let output = document.querySelector(".output")
+    }
+    xhr.send()
 
-        output.innerText = J_Lang
+}
+
+
+//  HW :  render the gathered info into a HTML table 
+//         using DOM OOP approach
+const addLang =() =>{
+    let output = document.querySelector('.output')
+    let ul = document.createElement('ul')
+    for(let i = 0; i<languages.length;i++){
+        
+        let li = document.createElement('li')
+        
+       
+         li.innerText = languages[i]
+         
+        
+         ul.appendChild(li)
+        
     }
 
-    xhr.send()
+    output.appendChild(ul)
 }
+
+scrapper()
+
+addLang()
